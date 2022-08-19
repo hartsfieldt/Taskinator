@@ -49,7 +49,6 @@ var createTaskEl = function(taskDataObj) {
     var taskActionsEl = createTaskActions(taskIdCounter);
     listItemEl.appendChild(taskActionsEl);
 
-    // when was this switch status called in the module Assignments?
     switch (taskDataObj.status) {
         case "to do":
           taskActionsEl.querySelector("select[name='status-change']").selectedIndex = 0;
@@ -183,13 +182,12 @@ var editTask = function(taskId) {
 
     var taskType = taskSelected.querySelector("span.task-type").textContent;
     console.log(taskType);
-// when did this happen?
+
     document.querySelector("input[name='task-name']").value = taskName;
     document.querySelector("select[name='task-type']").value = taskType;
 
-    // set data attribute to the form with a value of the task's id so it knows which one is being edited
     formEl.setAttribute("data-task-id", taskId);
-    // update form's button to reflect editing a task rather than creating a new one
+
     formEl.querySelector("#save-task").textContent = "Save Task";
 };
 
@@ -197,7 +195,7 @@ var deleteTask = function(taskId) {
     console.log(taskId);
 
     var taskSelected = document.querySelector(".task-item[data-task-id='" + taskId + "']");
-// when  did this happen?
+
     taskSelected.remove();
 
     var updatedTaskArr = [];
